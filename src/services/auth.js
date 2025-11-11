@@ -1,5 +1,4 @@
-// src/services/auth.js
-import { auth, db } from "../firebase";
+import { auth, db } from "./firebase"; // NOTE: relative path inside /services
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

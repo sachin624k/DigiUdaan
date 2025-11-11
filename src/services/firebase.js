@@ -1,4 +1,3 @@
-// src/firebase.js
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -14,12 +13,11 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// TEMP debug (remove after verifying on production console)
+// Debug once on PROD to confirm envs (remove later)
 console.log("[Firebase] apiKey:", firebaseConfig.apiKey);
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-// Only run Analytics when supported + in browser
 if (typeof window !== "undefined") {
   isSupported().then(ok => {
     if (ok && firebaseConfig.measurementId) getAnalytics(app);
